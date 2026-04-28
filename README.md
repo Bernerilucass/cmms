@@ -6,3 +6,25 @@ DependenciaPara qué sirve en TU sistemaSpring WebPermite crear los endpoints RE
 4. Repositories              ← acceso a la BD
 5. Services                  ← lógica de negocio
 6. Controllers               ← endpoints REST
+   Controller llama al Service →
+   Service llama al Repository →
+   Repository consulta PostgreSQL →
+   Devuelve la lista al Controller →
+   Controller la envuelve en ResponseEntity y responde JSON
+   Cliente envía: POST /api/ordenes
+   ↓
+   @RestController recibe la petición
+   ↓
+   @PostMapping la dirige al método crear()
+   ↓
+   @RequestBody convierte el JSON a objeto Java
+   ↓
+   ordenTrabajoService.guardar(ot) ejecuta la lógica
+   ↓
+   El repository hace INSERT en PostgreSQL
+   ↓
+   ResponseEntity.ok() envuelve el resultado en HTTP 200
+   ↓
+   Spring convierte el objeto Java a JSON
+   ↓
+   Cliente recibe el JSON con la OT creada
