@@ -2,7 +2,8 @@ package com.cmms.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
-
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 import java.time.LocalDateTime;
 
 @Data
@@ -28,17 +29,12 @@ public class Usuario {
     private String apellido;
 
     @Enumerated(EnumType.STRING)
+    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
     @Column(name = "rol", nullable = false)
     private RolEnum rol;
 
-    @Column(name = "fecha_alta", updatable = false)
+    @Column(name = "fecha_alta")
     private LocalDateTime fechaAlta;
-
-    // 🔧 Set automático como en la BD
-    @PrePersist
-    public void prePersist() {
-        this.fechaAlta = LocalDateTime.now();
-    }
 
     public enum RolEnum {
         ADMINISTRADOR, TECNICO

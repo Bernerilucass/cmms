@@ -2,6 +2,8 @@ package com.cmms.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 @Data
 @Entity
@@ -17,10 +19,12 @@ public class Activo {
     private String nombreActivo;
 
     @Enumerated(EnumType.STRING)
+    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
     @Column(name = "criticidad", nullable = false)
     private CriticidadEnum criticidad;
 
     @Enumerated(EnumType.STRING)
+    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
     @Column(name = "tipo_reparacion", nullable = false)
     private TipoReparacionEnum tipoReparacion;
 

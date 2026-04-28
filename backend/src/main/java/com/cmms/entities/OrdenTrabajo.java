@@ -2,6 +2,8 @@ package com.cmms.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 import java.time.LocalDateTime;
 
 @Data
@@ -23,6 +25,7 @@ public class OrdenTrabajo {
     private PlanPreventivo planPreventivo;
 
     @Enumerated(EnumType.STRING)
+    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
     @Column(name = "tipo_ot", nullable = false)
     private TipoOtEnum tipoOt;
 
@@ -42,6 +45,7 @@ public class OrdenTrabajo {
     private LocalDateTime fechaFinalizacion;
 
     @Enumerated(EnumType.STRING)
+    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
     @Column(name = "estado", nullable = false)
     private EstadoOtEnum estado;
 
