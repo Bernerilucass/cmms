@@ -30,7 +30,7 @@ public class PlanPreventivo {
 
     @Column(name = "proximo_mantenimiento")
     private LocalDate proximoMantenimiento;
-
+    
     // FIX del error de duplicación
     @Column(name = "activo")
     private Boolean activoFlag;
