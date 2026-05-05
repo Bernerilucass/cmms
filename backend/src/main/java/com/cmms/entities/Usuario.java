@@ -39,4 +39,6 @@ public class Usuario {
     public enum RolEnum {
         ADMINISTRADOR, TECNICO
     }
+    @Column(name = "password", nullable = false)
+    private String password;
 }

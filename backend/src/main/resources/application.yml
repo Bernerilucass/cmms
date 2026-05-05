@@ -30,3 +30,6 @@ logging:
     org.hibernate.SQL: DEBUG
     org.hibernate.type.descriptor.sql: TRACE
     org.springframework.web: DEBUG
+jwt:
+  secret: cmms-fabrica-secret-key-2026-industrial-system-very-long-key
+  expiration: 86400000
