@@ -22,7 +22,7 @@ public class PlanPreventivoService {
     }
 
     public List<PlanPreventivo> obtenerActivos() {
-        return planPreventivoRepository.findByActivoTrue();
+        return planPreventivoRepository.findByActivoFlagTrue();
     }
 
     public PlanPreventivo guardar(PlanPreventivo plan) {

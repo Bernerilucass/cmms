@@ -7,5 +7,5 @@ import java.util.List;
 
 @Repository
 public interface PlanPreventivoRepository extends JpaRepository<PlanPreventivo, Integer> {
-    List<PlanPreventivo> findByActivoTrue();
+    List<PlanPreventivo> findByActivoFlagTrue();
 }
